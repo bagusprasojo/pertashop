@@ -69,12 +69,13 @@ class Transaksi_model extends MY_Model
 
         
         if (!empty($user_id)) {
-            $this->db->where('user_id = ' ,$user_id);
+            $this->db->where('transaksi.user_id = ' ,$user_id);
         }
         
 
         $this->db->order_by("tanggal", "asc");
-        $this->db->select($this->_table . ".*");
+        $this->db->select($this->_table . ".*, user.username");
+        $this->db->join('user', 'transaksi.user_id = user.user_id');
         return $query = $this->db->get($this->_table,$number,$offset)->result();		
 	}
  
@@ -82,10 +83,11 @@ class Transaksi_model extends MY_Model
         
         $this->db->where('DATE(tanggal) >=',$first_date); 
         $this->db->where('DATE(tanggal) <=',$second_date);
+        $this->db->join('user', 'transaksi.user_id = user.user_id');
 
         
         if (!empty($user_id)) {
-            $this->db->where('user_id =',$user_id);
+            $this->db->where('transaksi.user_id =',$user_id);
         }
         
 

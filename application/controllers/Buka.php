@@ -19,7 +19,7 @@ class Buka extends CI_Controller
     public function index()
     {
         if (isset($_POST['btn_submit'])) {
-			$data['nama'] = $this->input->post('cari');
+			$data['user_id'] = $this->input->post('user_id');
             $data['tanggal1'] = $this->input->post('tanggal1');
             $data['tanggal2'] = $this->input->post('tanggal2');
 
@@ -29,7 +29,7 @@ class Buka extends CI_Controller
             $this->session->set_userdata('sess_tanggal2', $data['tanggal2']);
 		}
 		else {
-			$data['nama'] = $this->session->userdata('sess_nama');
+			$data['user_id'] = $_SESSION['user_logged']->user_id;
 
             if ($this->session->userdata('sess_tanggal1')==""){
                 $data['tanggal1'] = date("Y-m-01");    
@@ -44,19 +44,19 @@ class Buka extends CI_Controller
             }
 		}
 
-        $from                   = $this->uri->segment(3);
+        $from  = $this->uri->segment(3);
         
         
-        $jumlah_data = $this->transaksi_model->jumlah_data($data['tanggal1'],$data['tanggal2'], $data['nama']);
+        $jumlah_data = $this->transaksi_model->jumlah_data($data['tanggal1'],$data['tanggal2'], $data['user_id']);
 
         #echo "from : " . $from . "<br>";
         #echo "tgl1 : " . $tgl1 . "<br>";
         #echo "tgl1 : " . $jumlah_data . "<br>";
 
 		$this->load->library('pagination');
-		$config['base_url']     = base_url().'index.php/transaksi/index/';
+		$config['base_url']     = base_url().'index.php/buka/index/';
 		$config['total_rows']   = $jumlah_data;
-        $config['per_page']     = 25;
+        $config['per_page']     = 3;
 
         $config['next_link'] = 'Selanjutnya';
         $config['prev_link'] = 'Sebelumnya';
@@ -76,7 +76,7 @@ class Buka extends CI_Controller
         $config['first_tag_open'] = '</span></li>';
 
 		$this->pagination->initialize($config);
-        $data['transaksis'] = $this->transaksi_model->data($config['per_page'],$from,$data['tanggal1'],$data['tanggal2'], $data['nama']);
+        $data['transaksis'] = $this->transaksi_model->data($config['per_page'],$from,$data['tanggal1'],$data['tanggal2'], $data['user_id']);
         $data['pagination'] = $this->pagination->create_links();
         $this->load->view("v_transaksi_list_buka", $data);
     }
@@ -129,7 +129,7 @@ class Buka extends CI_Controller
         }
     }
 
-    public function edit($id = null)
+    public function edit($id = null, $is_tutup=null)
     {
         if (!isset($id)) redirect('buka');
        
@@ -143,6 +143,7 @@ class Buka extends CI_Controller
         }
 
         $data["transaksi"] = $transaksi->getById($id);
+        $data["is_tutup"] = $is_tutup;
         if (!$data["transaksi"]) show_404();
         
 
