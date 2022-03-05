@@ -11,7 +11,6 @@
 			<a href="<?php echo site_url('user/logout') ?>" class="list-group-item ">Logout</a>
 			<a href="<?php echo site_url('user') ?>" class="list-group-item">Data User</a>
 			<a href="<?php echo site_url('buka') ?>" class="list-group-item">Input Transaksi Buka</a>
-			<a href="<?php echo site_url('transaksi/tutup') ?>" class="list-group-item">Input Transaksi Tutup</a>
 			
 			<a href="<?php echo site_url('laporan') ?>" class="list-group-item">Laporan</a>
 			<ul style="list-style-type:square;">
@@ -20,7 +19,7 @@
 				
 			</ul>
 			
-			<a href="#" class="list-group-item">Status</a>	
+			
 		<?php
 			} else {
 		?>

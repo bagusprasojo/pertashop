@@ -123,7 +123,7 @@ class Buka extends CI_Controller
     		$data["transaksi"] = $transaksi;
             
             //$data["nama_produk"]   = "";
-            //$data["kode_produk"]   = "";
+            $data["is_tutup"]   = "0";
 
             $this->load->view("v_transaksi_input_buka", $data);
         }

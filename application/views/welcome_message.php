@@ -14,7 +14,12 @@
         <?php $this->load->view("_partials/navigation.php") ?>
       
         <?php if ($show_dashboard == 1) {?>
-          <h2>Feburari 2022</h2>
+          	<h2>
+			  	<?php 
+			  		$date=date_create();
+					echo date_format($date,"F Y");
+				?>
+			</h2>
           <table class="table table-sm table-bordered" id="dataTable" width="100%" cellspacing="0">
 								<thead align="center">
 									<tr>
