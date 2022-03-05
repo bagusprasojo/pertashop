@@ -22,14 +22,14 @@
 					<input type="hidden" name="transaksi_id" value="<?php echo $transaksi->transaksi_id?>" />
 					<input type="hidden" name="user_id" value="<?php echo $_SESSION['user_logged']->user_id?>" />
 
-					
-					<input type="hidden" name="tutup" value="<?php echo $transaksi->tutup?>" />
-					<input type="hidden" name="depan_tutup" value="0" />
-					<input type="hidden" name="digital_tutup" value="0" />
-					<input type="hidden" name="deep_stick_tutup" value="0" />
 					<input type="hidden" name="is_pengisian" value="0" />
 
 					<?php if ($is_tutup == 0) {?>
+						<input type="hidden" name="tutup" value="<?php echo $transaksi->tutup?>" />
+						<input type="hidden" name="depan_tutup" value="0" />
+						<input type="hidden" name="digital_tutup" value="0" />
+						<input type="hidden" name="deep_stick_tutup" value="0" />
+						
 						<div class="form-group">
 							<label for="tanggal">Tanggal*</label>
 							<input class="form-control <?php echo form_error('tanggal') ? 'is-invalid':'' ?>"
@@ -76,6 +76,11 @@
 							</div>
 						</div>
 					<?php } else {?>
+						<input type="text"name="buka" value = "<?php echo $transaksi->buka ?>" />
+						<input type="hidden"name="depan_buka" value = "<?php echo $transaksi->depan_buka ?>" />
+						<input type="hidden"name="digital_buka" value = "<?php echo $transaksi->digital_buka ?>" />
+						<input type="hidden"name="deep_stick_buka" value = "<?php echo $transaksi->deep_stick_buka ?>" />
+						
 						<div class="form-group">
 							<label for="tanggal">Tanggal*</label>
 							<input class="form-control <?php echo form_error('tanggal') ? 'is-invalid':'' ?>"
@@ -85,9 +90,6 @@
 							</div>
 						</div>
 
-						<input type="hidden"name="depan_buka" value = "<?php echo $transaksi->depan_buka ?>" />
-						<input type="hidden"name="digital_buka" value = "<?php echo $transaksi->digital_buka ?>" />
-						<input type="hidden"name="deep_stick_buka" value = "<?php echo $transaksi->deep_stick_buka ?>" />
 						
 						<div class="form-group">
 							<label for="buka">Tutup*</label>
