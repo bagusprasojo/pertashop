@@ -76,7 +76,7 @@
 							</div>
 						</div>
 					<?php } else {?>
-						<input type="text"name="buka" value = "<?php echo $transaksi->buka ?>" />
+						<input type="hidden"name="buka" value = "<?php echo $transaksi->buka ?>" />
 						<input type="hidden"name="depan_buka" value = "<?php echo $transaksi->depan_buka ?>" />
 						<input type="hidden"name="digital_buka" value = "<?php echo $transaksi->digital_buka ?>" />
 						<input type="hidden"name="deep_stick_buka" value = "<?php echo $transaksi->deep_stick_buka ?>" />
