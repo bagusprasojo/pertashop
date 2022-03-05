@@ -24,7 +24,7 @@ class Buka extends CI_Controller
             $data['tanggal2'] = $this->input->post('tanggal2');
 
 			// se session userdata untuk pencarian, untuk paging pencarian
-			$this->session->set_userdata('sess_nama', $data['nama']);
+			//$this->session->set_userdata('sess_nama', $data['nama']);
             $this->session->set_userdata('sess_tanggal1', $data['tanggal1']);
             $this->session->set_userdata('sess_tanggal2', $data['tanggal2']);
 		}
