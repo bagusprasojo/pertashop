@@ -136,7 +136,7 @@ class Transaksi_model extends MY_Model
         $this->deep_stick_tutup = 0;
         $this->is_pengisian     = 0;
 
-        echo "bukak" . $post["buka"];
+        
         if ($post["buka"]) {
             $this->buka = $post["tanggal"] ."T". $post["buka"];
         }
