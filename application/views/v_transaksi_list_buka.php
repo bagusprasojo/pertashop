@@ -135,6 +135,7 @@
 							<br/>
 							<?php 
 							echo $pagination;
+							//echo $this->db->last_query();
 							?>
 						</div>
 				</div>

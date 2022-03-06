@@ -1,5 +1,5 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading">Pertashop UD Ikhsan Prajawan Fadli</div>
+    <div class="sidebar-heading">UD Ikhsan Prajawan Fadli</div>
     
 
 	<div class="list-group">

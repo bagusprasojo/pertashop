@@ -30,6 +30,7 @@
 										<th colspan="3">Deep Stick</th>
 										
 									</tr>
+									
                   <tr>
                     <th>Buka</th>
 										<th>Tutup</th>
@@ -47,47 +48,25 @@
 									</tr>
 								</thead>
 								<tbody>
+									<?php 
+										$no = 1;
+										foreach ($transaksis as $transaksi): 
+									?>
 									<tr>
-										<td width="20">
-										</td>
-										<td width="100">
-										</td>
-										
-                    <td width="100">
-										</td>
-										
-                    <td width="100">
-										</td>
-										
-                    <td width="100">
-										</td>
-										
-                    <td width="100">
-										</td>
-										
-                    <td width="100">
-										</td>
-										
-                    <td width="100">
-										</td>
-										
-                    <td width="100">
-										</td>
-
-                    <td width="100">
-										</td>
-										
-                    <td width="100">
-										</td>
-										
-                    <td width="100">
-										</td>
-										
-                    
-										
-										
+										<td width="100"><?php echo $transaksi->tanggal ?></td>
+										<td width="60"><?php $date = date("H:i", strtotime($transaksi->buka)); echo $date ?></td>
+										<td width="60"><?php $date = date("H:i", strtotime($transaksi->tutup)); echo $date ?></td>
+										<td width="100"><?php echo $transaksi->depan_buka ?></td>
+										<td width="100"><?php echo $transaksi->depan_tutup ?></td>
+										<td width="100"><?php echo $transaksi->depan_buka - $transaksi->depan_tutup ?></td>
+										<td width="100"><?php echo $transaksi->digital_buka ?></td>
+										<td width="100"><?php echo $transaksi->digital_tutup ?></td>
+										<td width="100"><?php echo $transaksi->digital_buka- $transaksi->digital_tutup ?></td>
+										<td width="100"><?php echo $transaksi->deep_stick_buka ?></td>
+										<td width="100"><?php echo $transaksi->deep_stick_tutup ?></td>
+										<td width="100"><?php echo $transaksi->deep_stick_buka- $transaksi->deep_stick_tutup ?></td>
 									</tr>
-									
+									<?php endforeach; ?>
 								</tbody>
 							</table>
         <?php }?>

@@ -25,10 +25,10 @@
 					<input type="hidden" name="is_pengisian" value="0" />
 
 					<?php if ($is_tutup == 0) {?>
-						<input type="hidden" name="tutup" value="<?php echo $transaksi->tutup?>" />
-						<input type="hidden" name="depan_tutup" value="0" />
-						<input type="hidden" name="digital_tutup" value="0" />
-						<input type="hidden" name="deep_stick_tutup" value="0" />
+						<input type="hidden" name="tutup" value="<?php $date = date("H:i", strtotime($transaksi->tutup)); echo "$date"; ?>" />
+						<input type="hidden" name="depan_tutup" value="<?php echo $transaksi->depan_tutup?>" />
+						<input type="hidden" name="digital_tutup" value="<?php echo $transaksi->digital_tutup?>" />
+						<input type="hidden" name="deep_stick_tutup" value="<?php echo $transaksi->deep_stick_tutup?>" />
 						
 						<div class="form-group">
 							<label for="tanggal">Tanggal*</label>
@@ -76,10 +76,10 @@
 							</div>
 						</div>
 					<?php } else {?>
-						<input type="hidden"name="buka" value = "<?php echo $transaksi->buka ?>" />
-						<input type="hidden"name="depan_buka" value = "<?php echo $transaksi->depan_buka ?>" />
-						<input type="hidden"name="digital_buka" value = "<?php echo $transaksi->digital_buka ?>" />
-						<input type="hidden"name="deep_stick_buka" value = "<?php echo $transaksi->deep_stick_buka ?>" />
+						<input type="hidden" name="buka" value="<?php $date = date("H:i", strtotime($transaksi->buka)); echo "$date"; ?>" />
+						<input type="hidden" name="depan_buka" value="<?php echo $transaksi->depan_buka?>" />
+						<input type="hidden" name="digital_buka" value="<?php echo $transaksi->digital_buka?>" />
+						<input type="hidden" name="deep_stick_buka" value="<?php echo $transaksi->deep_stick_buka?>" />
 						
 						<div class="form-group">
 							<label for="tanggal">Tanggal*</label>

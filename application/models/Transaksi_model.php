@@ -76,7 +76,9 @@ class Transaksi_model extends MY_Model
         $this->db->order_by("tanggal", "asc");
         $this->db->select($this->_table . ".*, user.username");
         $this->db->join('user', 'transaksi.user_id = user.user_id');
-        return $query = $this->db->get($this->_table,$number,$offset)->result();		
+        return $query = $this->db->get($this->_table,$number,$offset)->result();
+        
+        echo $this->db->last_query();
 	}
  
 	function jumlah_data($first_date, $second_date,$user_id = null ){
@@ -134,12 +136,13 @@ class Transaksi_model extends MY_Model
         $this->deep_stick_tutup = 0;
         $this->is_pengisian     = 0;
 
+        echo "bukak" . $post["buka"];
         if ($post["buka"]) {
             $this->buka = $post["tanggal"] ."T". $post["buka"];
         }
 
         if ($post["tutup"]) {
-            $this->tutup = $post["tutup"];
+            $this->tutup = $post["tanggal"] ."T".$post["tutup"];
         }
 
         if ($post["depan_buka"]) {
